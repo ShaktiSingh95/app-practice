@@ -22,6 +22,10 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
         }
         
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.closeRight()
+    }
     var placeHolderImage = UIImage(named:Constants.imageIdentifiers.placeHolderImage)
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,8 +51,9 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.celebsMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
         
-       cell.imageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage:placeHolderImage)
-        
+       cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage:placeHolderImage)
+        cell.customImageView.popularityLabel.text="sps"
+
         
         
         return cell

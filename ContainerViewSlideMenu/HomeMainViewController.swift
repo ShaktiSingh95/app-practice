@@ -45,6 +45,10 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
     }
     
     var placeHolderImage = UIImage(named:Constants.imageIdentifiers.placeHolderImage)
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.closeRight()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,25 +103,27 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
         if collectionView == popularCelebsCollectionView{
             
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularCelebsCell, forIndexPath: indexPath) as! CollectionViewCell
-            cell.imageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage: placeHolderImage)
-            
-            
+            //cell.imageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage: placeHolderImage)
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage: placeHolderImage)
+            //cell.customImageView.popularityLabel.text="\(popularCelebs[indexPath.row].popularity!)"+"%"
             return cell
             
         }
         else if collectionView == popularMoviesCollectionView{
             
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularMovieCell, forIndexPath: indexPath) as! CollectionViewCell
-            cell.imageView.kf_setImageWithURL(NSURL(string: popularMovies[indexPath.row].posterImagePath!), placeholderImage: placeHolderImage)
-            
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popularMovies[indexPath.row].posterImagePath!), placeholderImage: placeHolderImage)
+            //cell.customImageView.popularityLabel.text="\(popularMovies[indexPath.row].averageVote!)" + "/10"
+
             return cell
             
         }
         else{
             
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularTvCell, forIndexPath: indexPath) as! CollectionViewCell
-            cell.imageView.kf_setImageWithURL(NSURL(string: popularTvShows[indexPath.row].posterImagePath!), placeholderImage: placeHolderImage)
-            
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popularTvShows[indexPath.row].posterImagePath!), placeholderImage: placeHolderImage)
+           // cell.customImageView.popularityLabel.text="\(popularTvShows[indexPath.row].averageVote!)"+"/10"
+
             return cell
             
         }

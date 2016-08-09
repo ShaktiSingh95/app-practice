@@ -1,15 +1,15 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "EBCD5ED16F580492EB12F23331628C8F853A0500",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "E9B5DE9246E3AEC505516F3A899102904F8D1AB4",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "EBCD5ED16F580492EB12F23331628C8F853A0500" : 0,
+    "E9B5DE9246E3AEC505516F3A899102904F8D1AB4" : 0,
     "8EDB20605646D5AB973F8F295A85CBFDF790F55A" : 0
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "DF24549A-F12D-4F7C-B4D1-1D2D6BFC5F48",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "EBCD5ED16F580492EB12F23331628C8F853A0500" : "The-Entertainment\/",
+    "E9B5DE9246E3AEC505516F3A899102904F8D1AB4" : "The-Entertainment\/",
     "8EDB20605646D5AB973F8F295A85CBFDF790F55A" : ".."
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "ContainerViewSlideMenu",
@@ -24,7 +24,7 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/ShaktiSingh95\/The-Entertainment.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "EBCD5ED16F580492EB12F23331628C8F853A0500"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "E9B5DE9246E3AEC505516F3A899102904F8D1AB4"
     }
   ]
 }

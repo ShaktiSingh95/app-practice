@@ -7,6 +7,7 @@
 //
 
 import Foundation
+//import UIKit
 class Constants{
       enum ApiSearchQueries : String{
         case apiKey = "ce7724b78a09f5436d559f3e56ad4ffa"
@@ -30,6 +31,20 @@ class Constants{
             case popular = "https://api.themoviedb.org/3/person/popular"
             
         }
+    }
+    enum alertPopupsOptions{
+        enum titles:String{
+            
+            case noInternetAlertTitle="No network Connectivity"
+
+            
+        }
+        enum messages:String {
+            
+            case noInternetAlertMessage="Please check your internet connectivity and come back"
+        
+        }
+        
     }
     
     struct viewControllerIdentifiers{
@@ -70,7 +85,8 @@ class Constants{
         
         static let rightOptionMenuButtonImage = "si0010s"
         static let placeHolderImage = "placeHolderImage"
-        
+        static let toBeLiked = "toBeLiked"
+        static let liked = "liked"
     }
     struct imageUrls{
         

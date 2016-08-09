@@ -234,9 +234,9 @@ extension ImageDownloader {
     
     - returns: A downloading task. You could call `cancel` on it to stop the downloading process.
     */
-    public func downloadImageWithURL(URL: NSURL,
-                           progressBlock: ImageDownloaderProgressBlock?,
-                       completionHandler: ImageDownloaderCompletionHandler?) -> RetrieveImageDownloadTask?
+    public func downloadImageWithURL(URL: NSURL,progressBlock: ImageDownloaderProgressBlock?,
+                                     completionHandler: ImageDownloaderCompletionHandler?) -> RetrieveImageDownloadTask?
+                           
     {
         return downloadImageWithURL(URL, options: nil, progressBlock: progressBlock, completionHandler: completionHandler)
     }

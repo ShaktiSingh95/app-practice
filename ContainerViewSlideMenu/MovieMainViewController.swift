@@ -24,6 +24,10 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
         }
     
     }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.closeRight()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         popularMoviesCollectionView.dataSource = self
@@ -46,8 +50,8 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.movieMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
-        cell.imageView.kf_setImageWithURL(NSURL(string: self.popularMovies[indexPath.row].posterImagePath!)!, placeholderImage:placeHolderImage)
-        
+        cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: self.popularMovies[indexPath.row].posterImagePath!)!, placeholderImage:placeHolderImage)
+        cell.customImageView.popularityLabel.text="sps"
         return cell
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

@@ -11,6 +11,8 @@ import UIKit
 class RequestedTypeTableViewCell: UITableViewCell {
     
     @IBOutlet weak var cellImageView: UIImageView!
+    
+    @IBOutlet weak var customImageView: CustomImageView!
     @IBOutlet weak var cellInfo: UILabel!
     
     override func awakeFromNib() {

@@ -25,7 +25,10 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
     }
     var placeHolderImage = UIImage(named:Constants.imageIdentifiers.placeHolderImage)
-    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.closeRight()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         popularTvCollectionView.dataSource = self
@@ -50,8 +53,9 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.tvMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
-        cell.imageView.kf_setImageWithURL(NSURL(string: popualarTvShows[indexPath.row].posterImagePath!), placeholderImage:placeHolderImage)
-        
+        cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popualarTvShows[indexPath.row].posterImagePath!), placeholderImage:placeHolderImage)
+        cell.customImageView.popularityLabel.text="sps"
+
         
         return cell
     }
