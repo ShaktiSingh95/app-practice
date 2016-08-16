@@ -17,6 +17,7 @@ class Movie{
     var averageVote:Double?
     var popularity:Double?
     var posterImagePath:String?
+    var id : Int?
     init(json:JSON){
         
         self.title = json["original_title"].string
@@ -24,7 +25,8 @@ class Movie{
         self.overview = json["overview"].string
         self.popularity = json["popularity"].double
         self.averageVote = json["vote_average"].double
-            if let path = json["poster_path"].string
+        self.id = json["id"].int
+        if let path = json["poster_path"].string
             
         {
             

@@ -8,12 +8,13 @@
 
 import UIKit
 import Kingfisher
-class MovieMainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource,UITableViewDelegate{
+class MovieMainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource,UITableViewDelegate,CustomImageViewDelegate{
     
     @IBOutlet weak var popularMoviesCollectionView: UICollectionView!
     @IBOutlet weak var movieCategoryTableView: UITableView!
     var placeHolderImage = UIImage(named:Constants.imageIdentifiers.placeHolderImage)
-    
+    let customView=CustomImageView()
+    var defaults = NSUserDefaults.standardUserDefaults()
     private var tableContent = ["Upcoming","Top Rated","Most Popular"]
     var popularMovies = [Movie](){
     
@@ -34,7 +35,7 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
         popularMoviesCollectionView.delegate = self
         movieCategoryTableView.dataSource=self
         movieCategoryTableView.delegate=self
-        
+        customView.delegate=self
         AppModel.fetchPerticularMovies(Constants.ApiSearchQueries.MovieRelated.popularMovies){
             
             movies in
@@ -45,13 +46,28 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
+    func invertLike() {
+        
+       // defaults.setBool(true, forKey: )
+        
+    }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return popularMovies.count
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.movieMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: self.popularMovies[indexPath.row].posterImagePath!)!, placeholderImage:placeHolderImage)
-        cell.customImageView.popularityLabel.text="sps"
+        if let posterImageLink =  popularMovies[indexPath.row].posterImagePath{
+            
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string:posterImageLink), placeholderImage: placeHolderImage)
+            
+        }
+        cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
+        
+        if let averageVote = popularMovies[indexPath.row].averageVote{
+            
+            cell.customImageView.popularityLabel.text="\(averageVote)"+"%"
+            
+        }
         return cell
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

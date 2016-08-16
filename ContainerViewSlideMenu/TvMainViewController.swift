@@ -15,7 +15,7 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     private var tableContent = ["Aired Today","On The Air","Latest","Top Rated","Most Popular"]
     
-    var popualarTvShows = [Tv](){
+    var popularTvShows = [Tv](){
         
         didSet{
             
@@ -39,7 +39,7 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
         AppModel.fetchPerticularTvShows(Constants.ApiSearchQueries.TvRelated.popular){
             
             tvShows in
-            self.popualarTvShows = tvShows
+            self.popularTvShows = tvShows
         }
         
     }
@@ -48,15 +48,23 @@ class TvMainViewController: UIViewController,UICollectionViewDelegate,UICollecti
         super.didReceiveMemoryWarning()
     }
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return popualarTvShows.count
+        return popularTvShows.count
         //*** should return popualarTvShows.count when error is fixed ***
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.tvMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
-        cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popualarTvShows[indexPath.row].posterImagePath!), placeholderImage:placeHolderImage)
-        cell.customImageView.popularityLabel.text="sps"
-
+        if let posterImageLink = popularTvShows[indexPath.row].posterImagePath{
+            
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: posterImageLink), placeholderImage: placeHolderImage)
+            
+        }
+        cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
         
+        if let averageVote = popularTvShows[indexPath.row].averageVote{
+            
+            cell.customImageView.popularityLabel.text="\(averageVote)"+"%"
+            
+        }
         return cell
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

@@ -12,12 +12,14 @@ class Celeb{
     
     var knownFor = [Movie]()
     var name : String?
-    var popularity : String?
+    var popularity : Double?
+    var id : Int?
     var profileImagePath: String?
     init(json: JSON){
         
         self.name = json["name"].string
-        self.popularity = json["popularity"].string
+        self.popularity = json["popularity"].double
+        self.id = json["id"].int
         if let path = json["profile_path"].string
         {
         

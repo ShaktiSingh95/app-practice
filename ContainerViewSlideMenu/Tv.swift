@@ -10,22 +10,24 @@ import Foundation
 import SwiftyJSON
 class Tv{
     
-    var popularity : String?
-    var averageVote : String?
+    var popularity : Double?
+    var averageVote : Double?
     var firstAirDate : String?
     var originCountry : String?
     var language : String?
-    var vote : String?
+    var vote : Double?
     var overView : String?
+    var id : Int?
     var posterImagePath : String?
     init(json: JSON){
 
-        self.popularity = json["popularity"].string
-        self.averageVote = json["vote_average"].string
+        self.popularity = json["popularity"].double
+        self.averageVote = json["vote_average"].double
         self.firstAirDate = json["first_air_date"].string
         self.language = json["original_language"].string
         self.originCountry = json["origin_country"][0].string
         self.overView = json["overview"].string
+        self.id = json["id"].int
         if let path = json["poster_path"].string
         {
             
@@ -38,7 +40,7 @@ class Tv{
             self.posterImagePath = Constants.imageUrls.baseImageUrl
             
         }
-        self.vote = json["vote_count"].string
+        self.vote = json["vote_count"].double
 
     }
     

@@ -53,7 +53,9 @@ class RequestedCelebsViewController: UITableViewController {
         
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //further code
+        let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
+        destinationVc.celeb = self.celebsFetched[indexPath.row]
+        showViewController(destinationVc, sender: nil)
     }
     
 }

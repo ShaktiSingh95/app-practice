@@ -51,14 +51,28 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.celebsMainCollectionCell, forIndexPath: indexPath) as! CollectionViewCell
         
-       cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage:placeHolderImage)
-        cell.customImageView.popularityLabel.text="sps"
-
+        if let posterImageLink = popularCelebs[indexPath.row].profileImagePath{
+            
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: posterImageLink), placeholderImage: placeHolderImage)
+            
+        }
+        if let name = popularCelebs[indexPath.row].name{
+            
+            cell.customImageView.popularityLabel.text=name
+            
+        }
+        cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
         
         
         return cell
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+    
+        let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
+        destinationVc.celeb = self.popularCelebs[indexPath.row]
+        showViewController(destinationVc, sender: nil)
+        
+    
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tableContent.count

@@ -61,10 +61,12 @@ class Constants{
         static let celebsVc = "celebs"
         static let celebsMainVc = "celebs_main"
         static let requestedCelebsVc = "celebs_list"
+        static let celebDetailsVc="celeb_detail_vc"
         
     }
     struct cellIdentifiers{
         
+        static let celebKnownForCell = "known_for_cell"
         static let homePopularMovieCell = "home_movie_cell"
         static let homePopularTvCell = "home_tv_cell"
         static let homePopularCelebsCell = "home_celeb_cell"

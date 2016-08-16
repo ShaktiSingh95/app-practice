@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RequestedMovieListViewController: UITableViewController {
+class RequestedMovieListViewController: UITableViewController,CustomImageViewDelegate {
     
     var query : Constants.ApiSearchQueries.MovieRelated!
     @IBOutlet var movieListTableView: UITableView!
@@ -21,6 +21,7 @@ class RequestedMovieListViewController: UITableViewController {
             
         }
     }
+    let customView=CustomImageView()
     override func viewDidLoad() {
         super.viewDidLoad()
         self.movieListTableView.dataSource = self
@@ -31,6 +32,10 @@ class RequestedMovieListViewController: UITableViewController {
             self.moviesFetched = movies
             
         }
+        
+        customView.delegate=self
+    }
+    func invertLike() {
         
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

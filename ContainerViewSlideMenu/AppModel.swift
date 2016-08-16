@@ -53,7 +53,7 @@ class AppModel{
     }
     class func fetchPerticularTvShows(queryUrl:Constants.ApiSearchQueries.TvRelated,handler: [Tv]->Void){
         if(Internet.isConnectedToNetwork()){
-            var parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue]
+            let parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue]
             Alamofire.request(.GET, queryUrl.rawValue, parameters: parameters).responseJSON(){
                 
                 response in
@@ -71,7 +71,7 @@ class AppModel{
         }}
     class func fetchPerticularCelebs(queryUrl:Constants.ApiSearchQueries.CelebsRelated,handler: [Celeb]->Void){
         if Internet.isConnectedToNetwork() {
-            var parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue]
+            let parameters:[String:AnyObject]=["api_key":Constants.ApiSearchQueries.apiKey.rawValue]
             Alamofire.request(.GET, queryUrl.rawValue, parameters: parameters).responseJSON(){
                 
                 response in

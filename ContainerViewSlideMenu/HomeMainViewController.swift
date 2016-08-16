@@ -97,6 +97,15 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
         
                 }
     }
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        if collectionView == popularCelebsCollectionView{
+            
+            let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.celebDetailsVc) as! CelebdetailViewController
+            destinationVc.celeb = self.popularCelebs[indexPath.row]
+            showViewController(destinationVc, sender: nil)
+            
+        }
+    }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         
@@ -104,16 +113,36 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
             
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularCelebsCell, forIndexPath: indexPath) as! CollectionViewCell
             //cell.imageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage: placeHolderImage)
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popularCelebs[indexPath.row].profileImagePath!), placeholderImage: placeHolderImage)
-            //cell.customImageView.popularityLabel.text="\(popularCelebs[indexPath.row].popularity!)"+"%"
+            if let posterImageLink = popularCelebs[indexPath.row].profileImagePath{
+                
+                cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: posterImageLink), placeholderImage: placeHolderImage)
+            
+            }
+            if let name = popularCelebs[indexPath.row].name{
+                
+            cell.customImageView.popularityLabel.text=name
+                
+            }
+            cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
             return cell
             
         }
         else if collectionView == popularMoviesCollectionView{
             
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularMovieCell, forIndexPath: indexPath) as! CollectionViewCell
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popularMovies[indexPath.row].posterImagePath!), placeholderImage: placeHolderImage)
-            //cell.customImageView.popularityLabel.text="\(popularMovies[indexPath.row].averageVote!)" + "/10"
+            
+            if let posterImageLink =  popularMovies[indexPath.row].posterImagePath{
+                
+                cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string:posterImageLink), placeholderImage: placeHolderImage)
+            
+            }
+            cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
+
+            if let averageVote = popularMovies[indexPath.row].averageVote{
+                
+                cell.customImageView.popularityLabel.text="\(averageVote)"+"%"
+                
+            }
 
             return cell
             
@@ -121,8 +150,20 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
         else{
             
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier(Constants.cellIdentifiers.homePopularTvCell, forIndexPath: indexPath) as! CollectionViewCell
-            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: popularTvShows[indexPath.row].posterImagePath!), placeholderImage: placeHolderImage)
-           // cell.customImageView.popularityLabel.text="\(popularTvShows[indexPath.row].averageVote!)"+"/10"
+            if let posterImageLink = popularTvShows[indexPath.row].posterImagePath{
+            
+            cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: posterImageLink), placeholderImage: placeHolderImage)
+                
+            }
+            cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
+
+            if let averageVote = popularTvShows[indexPath.row].averageVote{
+                
+                cell.customImageView.popularityLabel.text="\(averageVote)"+"%"
+                
+            }
+
+            // cell.customImageView.popularityLabel.text="\(popularTvShows[indexPath.row].averageVote!)"+"/10"
 
             return cell
             

@@ -8,12 +8,13 @@
 
 import UIKit
 
-@IBDesignable class CustomImageView: UIView {
+@IBDesignable class CustomImageView: UIView{
 
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var popularityLabel: UILabel!
-    
+    private let defaults=NSUserDefaults.standardUserDefaults()
+    var delegate:CustomImageViewDelegate!
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
@@ -22,6 +23,12 @@ import UIKit
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         setup()
+    }
+    @IBAction func tapped(sender: AnyObject) {
+
+        likeImageView.image=UIImage(named:Constants.imageIdentifiers.liked)
+        //delegate.invertLike()
+        print(sender)
     }
     private func setup(){
         
@@ -35,6 +42,7 @@ import UIKit
         
         self.addSubview(firstView)
     }
+    
     /*
     // Only override drawRect: if you perform custom drawing.
     // An empty implementation adversely affects performance during animation.

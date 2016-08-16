@@ -39,6 +39,7 @@ class rightViewController: UITableViewController {
                 
             else{
                 let destinationVc = self.storyboard?.instantiateViewControllerWithIdentifier(Constants.viewControllerIdentifiers.homeVc) as! HomeViewController
+                
                 showViewController(destinationVc, sender: nil)
                 
             }
