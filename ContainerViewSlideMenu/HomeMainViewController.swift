@@ -124,6 +124,8 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
                 
             }
             cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
+           cell.customImageView.id=popularCelebs[indexPath.row].id
+            cell.customImageView.delegate=self
             return cell
             
         }
@@ -143,7 +145,7 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
                 cell.customImageView.popularityLabel.text="\(averageVote)"+"%"
                 
             }
-
+cell.customImageView.id=popularMovies[indexPath.row].id
             return cell
             
         }
@@ -162,7 +164,7 @@ class HomeMainViewController: UIViewController,UICollectionViewDelegate,UICollec
                 cell.customImageView.popularityLabel.text="\(averageVote)"+"%"
                 
             }
-
+cell.customImageView.id=popularTvShows[indexPath.row].id
             // cell.customImageView.popularityLabel.text="\(popularTvShows[indexPath.row].averageVote!)"+"/10"
 
             return cell

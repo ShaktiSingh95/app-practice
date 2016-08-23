@@ -44,13 +44,15 @@ class CelebdetailViewController: UIViewController,UITableViewDelegate,UITableVie
     }
     @IBAction func taped(sender: UITapGestureRecognizer) {
         
+        let navigationBarHeight=self.navigationController?.navigationBar.frame.size.height
+
         if detailsState == false{
             
             UIView.animateWithDuration(2, animations: {
                 
-                self.detailsView.frame.origin=CGPoint(x: self.view.frame.origin.x,y:self.view.frame.origin.y+20)
+                self.detailsView.frame.origin=CGPoint(x: self.view.frame.origin.x,y:navigationBarHeight!+self.view.frame.origin.y+20)
                 
-                self.viewWithTableView.frame.origin=CGPoint(x: self.view.frame.origin.x,y:self.view.frame.maxY-213)
+                self.viewWithTableView.frame.origin=CGPoint(x: self.view.frame.origin.x,y:navigationBarHeight!+self.view.frame.maxY-213)
                 
                 }, completion: {handler in })
             detailsState=true
@@ -75,9 +77,9 @@ class CelebdetailViewController: UIViewController,UITableViewDelegate,UITableVie
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCellWithIdentifier(Constants.cellIdentifiers.celebKnownForCell) as! RequestedTypeTableViewCell
-        cell.cellInfo.text = celeb.knownFor[indexPath.row].overview
+        cell.cellInfo.text = celeb.knownFor[indexPath.row].overview!
         cell.customImageView.backgroundImageView.kf_setImageWithURL(NSURL(string: celeb.knownFor[indexPath.row].posterImagePath!), placeholderImage: UIImage(named:Constants.imageIdentifiers.placeHolderImage))
-        cell.customImageView.popularityLabel.text=String(celeb.knownFor[indexPath.row].popularity)
+        cell.customImageView.popularityLabel.text=String(celeb.knownFor[indexPath.row].popularity!)
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
         return cell
         

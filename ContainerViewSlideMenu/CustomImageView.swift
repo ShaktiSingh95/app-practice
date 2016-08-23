@@ -13,6 +13,8 @@ import UIKit
     @IBOutlet weak var likeImageView: UIImageView!
     @IBOutlet weak var backgroundImageView: UIImageView!
     @IBOutlet weak var popularityLabel: UILabel!
+    var id:Int!
+    var likeStatus = false
     private let defaults=NSUserDefaults.standardUserDefaults()
     var delegate:CustomImageViewDelegate!
     override init(frame: CGRect) {
@@ -26,9 +28,29 @@ import UIKit
     }
     @IBAction func tapped(sender: AnyObject) {
 
+        
+        print(id)
+        self.invertLike()
+        
+    }
+    private func invertLike(){
+        
+        if likeStatus == false{
+            
         likeImageView.image=UIImage(named:Constants.imageIdentifiers.liked)
-        //delegate.invertLike()
-        print(sender)
+            likeStatus = true
+         delegate.saveDataForId(self.id)
+        }
+        else
+        {
+        
+            likeImageView.image=UIImage(named:Constants.imageIdentifiers.toBeLiked)
+            likeStatus = false
+            delegate.deleteDataForId(self.id)
+            
+            //DataToBeSaved.deleteFromCelebsId(self.id)
+        }
+        
     }
     private func setup(){
         

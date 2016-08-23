@@ -8,7 +8,7 @@
 
 import UIKit
 import Kingfisher
-class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource,UITableViewDelegate {
+class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UITableViewDataSource,UITableViewDelegate,CustomImageViewDelegate {
     
     @IBOutlet weak var popularCelebsCollectionView: UICollectionView!
     @IBOutlet weak var celebsCategoriesTableView: UITableView!
@@ -33,7 +33,6 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
         popularCelebsCollectionView.delegate = self
         celebsCategoriesTableView.dataSource=self
         celebsCategoriesTableView.delegate=self
-        
         AppModel.fetchPerticularCelebs(Constants.ApiSearchQueries.CelebsRelated.popular){
             
             celebs in
@@ -41,7 +40,15 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
         }
         
     }
-    
+    func saveDataForId(id:Int){
+        
+        DataToBeSaved.appendToCelebsId(id)
+        
+        }
+    func deleteDataForId(id:Int){
+        
+        
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
@@ -62,7 +69,7 @@ class CelebsMainViewController: UIViewController,UICollectionViewDelegate,UIColl
             
         }
         cell.customImageView.likeImageView.image=UIImage(named: Constants.imageIdentifiers.toBeLiked)
-        
+        cell.customImageView.delegate=self
         
         return cell
     }

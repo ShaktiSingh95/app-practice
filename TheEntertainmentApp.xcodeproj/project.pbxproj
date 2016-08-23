@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		C29788AEB050B7EEAF598215 /* Pods_ContainerViewSlideMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA69F476D866E456D3F8BCBE /* Pods_ContainerViewSlideMenu.framework */; };
 		C31899431D494BC400139197 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31899421D494BC400139197 /* AppModel.swift */; };
+		C31D3A201D6C1CC0006AD9CF /* DataToBeSaved.swift in Sources */ = {isa = PBXBuildFile; fileRef = C31D3A1F1D6C1CC0006AD9CF /* DataToBeSaved.swift */; };
 		C32300AD1D5BB6BE0046EFB7 /* CustomImageViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32300AC1D5BB6BE0046EFB7 /* CustomImageViewDelegate.swift */; };
 		C357D8571D4BDBEE00D2440E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C357D8561D4BDBEE00D2440E /* Constants.swift */; };
 		C3584E1B1D47D680000E8C1B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3584E1A1D47D680000E8C1B /* MovieViewController.swift */; };
@@ -46,6 +47,7 @@
 		379D69DF2D6413AD0B0BC4F4 /* Pods-ContainerViewSlideMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ContainerViewSlideMenu.release.xcconfig"; path = "Pods/Target Support Files/Pods-ContainerViewSlideMenu/Pods-ContainerViewSlideMenu.release.xcconfig"; sourceTree = "<group>"; };
 		AA69F476D866E456D3F8BCBE /* Pods_ContainerViewSlideMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ContainerViewSlideMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C31899421D494BC400139197 /* AppModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		C31D3A1F1D6C1CC0006AD9CF /* DataToBeSaved.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataToBeSaved.swift; sourceTree = "<group>"; };
 		C32300AC1D5BB6BE0046EFB7 /* CustomImageViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomImageViewDelegate.swift; sourceTree = "<group>"; };
 		C357D8561D4BDBEE00D2440E /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C3584E1A1D47D680000E8C1B /* MovieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 		C38C9D0B1D47AA4B00FCDCC2 = {
 			isa = PBXGroup;
 			children = (
+				C31D3A1F1D6C1CC0006AD9CF /* DataToBeSaved.swift */,
 				C357D8561D4BDBEE00D2440E /* Constants.swift */,
 				C38C9D161D47AA4B00FCDCC2 /* TheEntertainmentApp */,
 				C38C9D151D47AA4B00FCDCC2 /* Products */,
@@ -297,6 +300,7 @@
 				C357D8571D4BDBEE00D2440E /* Constants.swift in Sources */,
 				C39601701D57A697008DF8BF /* CustomImageView.swift in Sources */,
 				C3F3B5131D4E7769005DFB33 /* RequestedTypeTableViewCell.swift in Sources */,
+				C31D3A201D6C1CC0006AD9CF /* DataToBeSaved.swift in Sources */,
 				C3C656C41D4B2DEA002FE1BB /* TvMainViewController.swift in Sources */,
 				C31899431D494BC400139197 /* AppModel.swift in Sources */,
 				C38147351D5A45990099BDC5 /* ErrorHandlerViewController.swift in Sources */,

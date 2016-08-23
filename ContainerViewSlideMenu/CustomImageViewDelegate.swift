@@ -8,5 +8,8 @@
 
 import Foundation
 protocol CustomImageViewDelegate {
-    func invertLike()
+    
+    func saveDataForId(id:Int)
+    func deleteDataForId(id:Int)
+    
 }

@@ -72,6 +72,7 @@ class MovieMainViewController: UIViewController,UICollectionViewDelegate,UIColle
     }
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
+        print("qqqqq")
         
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
