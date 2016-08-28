@@ -9,7 +9,6 @@
 import Foundation
 import SwiftyJSON
 class Tv{
-    
     var popularity : Double?
     var averageVote : Double?
     var firstAirDate : String?
